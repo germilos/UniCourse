@@ -1,0 +1,86 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 3, 2018, 4:53:14 PM
+    Author     : Milos
+*/
+
+html {
+    background-color: white;
+}
+head, body, footer {
+    margin-left: 500px;
+    margin-right: 500px;
+    background-color: #fffbed;
+}
+html, body {
+    height: 100%;
+}
+
+label, input {
+    display: inline;
+    min-width: 200px;
+}
+.form-control {
+    width: 30%;
+}
+#column_names_row:hoover {
+    background: none;
+}
+td a { 
+   display: block; 
+}
+
+.container-fluid {
+    max-width: 1000px;
+    /*overflow: hidden;*/
+}
+.row-div {
+    display: inline;
+}
+.main-div {
+    display: inline;
+}
+
+.course-title {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+/* Filter table CSS */
+#myInput {
+    background-image: url('magnify.png'); /* Add a search icon to input */
+    background-position: 10px 7px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+.searchableTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+
+.searchableTable th, .searchableTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+}
+
+.searchableTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd; 
+}
+
+.searchableTable tr.header, .searchableTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
+}
