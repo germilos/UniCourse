@@ -55,7 +55,6 @@ public class Course implements Serializable {
     @Column(name = "name")
     private String name;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "goal")
     private String goal;
@@ -74,9 +73,10 @@ public class Course implements Serializable {
     private List<CourseUnit> courseUnits;
 
     @ManyToMany(cascade = {
-        CascadeType.PERSIST,
+        CascadeType.DETACH,
         CascadeType.MERGE,
-        CascadeType.REMOVE
+        CascadeType.REFRESH,
+        CascadeType.PERSIST
     })
     @JoinTable(name = "role",
             joinColumns = @JoinColumn(name = "course_id"),

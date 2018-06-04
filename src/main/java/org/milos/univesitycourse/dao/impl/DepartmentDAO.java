@@ -17,15 +17,24 @@ import org.milos.univesitycourse.listeners.EMF;
  */
 public class DepartmentDAO implements IDepartmentDAO {
 
-    private EntityManager em; 
-    
+    private EntityManager em;
+
     @Override
-    public List<Department> getAll() {
+    public List<Department> getAll() throws Exception {
         em = EMF.createEntityManager();
         List<Department> departments = em.createQuery("SELECT d FROM Department d")
                 .getResultList();
-        em.close();
-        return departments;
+        try {
+            if (departments.isEmpty()) {
+                throw new Exception("No departments in database!");
+            } else {
+                return departments;
+            }
+        } catch (Exception ex) {
+            throw ex;
+        } finally {
+            em.close();
+        }
     }
 
     @Override

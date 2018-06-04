@@ -4,6 +4,7 @@ F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\serv
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\AbstractAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\dao\impl\DepartmentDAO.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\servlet\FrontControllerServlet.java
+F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\DisplayLecturerPageAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\FactoryAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\LogoutAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\service\IDepartmentService.java
@@ -15,6 +16,7 @@ F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\dao\
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\dao\IStudyProgrammeDAO.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\domain\StudyProgramme.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\DeleteCourseAction.java
+F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\AddLecturerPageAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\domain\Role.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\AddCoursePageAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\service\IAdminService.java
@@ -24,13 +26,17 @@ F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\filt
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\service\impl\AdminService.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\domain\Lecturer.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\service\impl\LecturerService.java
+F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\DisplayLecturersPageAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\LoginAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\UpdateCourseAction.java
+F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\AddLecturerAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\main\Main.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\dao\impl\CourseDAO.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\DisplayCoursePageAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\service\impl\DepartmentService.java
+F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\DeleteLecturerAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\DisplayCoursesPageAction.java
+F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\action\UpdateLecturerAction.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\controller\ApplicationController.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\listeners\EMF.java
 F:\NetBeansProjects\UnivesityCourse\src\main\java\org\milos\univesitycourse\service\IStudyProgrammeService.java

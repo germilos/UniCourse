@@ -1,4 +1,5 @@
 org\milos\univesitycourse\action\UpdateCourseAction.class
+org\milos\univesitycourse\action\DisplayLecturersPageAction.class
 org\milos\univesitycourse\domain\Admin.class
 org\milos\univesitycourse\service\IStudyProgrammeService.class
 org\milos\univesitycourse\dao\IAdminDAO.class
@@ -18,6 +19,7 @@ org\milos\univesitycourse\dao\impl\StudyProgrammeDAO.class
 org\milos\univesitycourse\servlet\FrontControllerServlet.class
 org\milos\univesitycourse\action\DeleteCourseAction.class
 org\milos\univesitycourse\domain\Department.class
+org\milos\univesitycourse\action\DeleteLecturerAction.class
 org\milos\univesitycourse\action\LoginAction.class
 org\milos\univesitycourse\main\Main.class
 org\milos\univesitycourse\enumeration\DiplomaType.class
@@ -28,14 +30,18 @@ org\milos\univesitycourse\resolver\PageResolver.class
 org\milos\univesitycourse\action\DisplayCoursesPageAction.class
 org\milos\univesitycourse\dao\impl\LecturerDAO.class
 org\milos\univesitycourse\enumeration\ProfessorType.class
+org\milos\univesitycourse\action\DisplayLecturerPageAction.class
 org\milos\univesitycourse\dao\ICourseDAO.class
 org\milos\univesitycourse\action\LogoutAction.class
 org\milos\univesitycourse\listeners\EMF.class
 org\milos\univesitycourse\action\AddCoursePageAction.class
 org\milos\univesitycourse\service\IAdminService.class
 org\milos\univesitycourse\service\impl\StudyProgrammeService.class
+org\milos\univesitycourse\action\AddLecturerPageAction.class
 org\milos\univesitycourse\domain\Lecturer.class
+org\milos\univesitycourse\action\AddLecturerAction.class
 org\milos\univesitycourse\action\DisplayCoursePageAction.class
+org\milos\univesitycourse\action\UpdateLecturerAction.class
 org\milos\univesitycourse\filter\LoginFilter.class
 org\milos\univesitycourse\service\impl\LecturerService.class
 org\milos\univesitycourse\domain\Role.class

@@ -23,7 +23,7 @@ public class DepartmentService implements IDepartmentService {
         departmentDAO = new DepartmentDAO();
     }
     @Override
-    public List<Department> retrieveAll() {
+    public List<Department> retrieveAll() throws Exception {
         return departmentDAO.getAll();
     }
 

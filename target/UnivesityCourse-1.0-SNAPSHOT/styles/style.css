@@ -17,21 +17,30 @@ head, body, footer {
     background-color: #fffbed;
 }
 html, body {
-    height: 100%;
+    min-height: 1000px;
 }
 
 label, input {
-    display: inline;
-    min-width: 200px;
+    display: block;
+
 }
+
+textarea {
+    width: 20%;
+}
+
+select {
+    width: 20%;
+}
+
 .form-control {
-    width: 30%;
+    width: 20%;
 }
 #column_names_row:hoover {
     background: none;
 }
 td a { 
-   display: block; 
+    display: block; 
 }
 
 .container-fluid {
@@ -51,6 +60,44 @@ td a {
     margin-left: 10px;
 }
 
+/*.col { float:left; }
+.col-elem {display: inline}
+label {text-align: left}
+input {min-width: 200px}
+select {min-width: 200px}
+textarea {min-width: 300px}
+.course_espb_label {margin-top: 30px}
+.status_department_col {
+    margin-left: 35px;
+    margin-top: 0px;
+}
+.course_dept_label {margin-top: 30px}
+.course_goal_label {margin-left: 50px; margin-top: -2px}
+#course_goal {margin-left: 50px; min-height: 125px}
+.select_list {
+    min-height: 110px;
+    min-width: 250px
+}
+.selected_lecturers {
+    margin-top: 47px;
+    margin-left: 30px;
+}
+.select_buttons {
+    margin-top:70px;
+    margin-left: 30px;
+    min-height: 20px;
+    min-width: 20px;
+}
+.select_list_lecturers {
+    min-height: 110px;
+    min-width: 250px;
+}
+
+.course-subtitle {
+    text-align: left;
+}*/
+
+
 /* Filter table CSS */
 #myInput {
     background-image: url('magnify.png'); /* Add a search icon to input */
@@ -63,24 +110,7 @@ td a {
     margin-bottom: 12px; /* Add some space below the input */
 }
 
-.searchableTable {
-    border-collapse: collapse; /* Collapse borders */
-    width: 100%; /* Full-width */
-    border: 1px solid #ddd; /* Add a grey border */
-    font-size: 18px; /* Increase font-size */
+.error_label {
+    color: red;
 }
 
-.searchableTable th, .searchableTable td {
-    text-align: left; /* Left-align text */
-    padding: 12px; /* Add padding */
-}
-
-.searchableTable tr {
-    /* Add a bottom border to all table rows */
-    border-bottom: 1px solid #ddd; 
-}
-
-.searchableTable tr.header, .searchableTable tr:hover {
-    /* Add a grey background color to the table header and on hover */
-    background-color: #f1f1f1;
-}

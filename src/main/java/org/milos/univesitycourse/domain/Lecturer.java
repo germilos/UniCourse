@@ -16,7 +16,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,14 +35,24 @@ public abstract class Lecturer implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
     
-    private String nameSurname;
+    protected String nameSurname;
     
-    private String fieldOfExpertise;
+    protected String fieldOfExpertise;
     
     @ManyToMany(mappedBy = "lecturers")
-    private List<Course> courses = new ArrayList<>();
+    protected List<Course> courses = new ArrayList<>();
+    
+    @JoinColumn(name = "deptId", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    protected Department deptIdFk;
+
+    public Lecturer(String nameSurname, String fieldOfExpertise, Department deptIdFk) {
+        this.nameSurname = nameSurname;
+        this.fieldOfExpertise = fieldOfExpertise;
+        this.deptIdFk = deptIdFk;
+    }
 
     public Long getId() {
         return id;
@@ -72,6 +84,39 @@ public abstract class Lecturer implements Serializable {
 
     public void setCourses(List<Course> courses) {
         this.courses = courses;
+    }
+
+    public Department getDeptIdFk() {
+        return deptIdFk;
+    }
+
+    public void setDeptIdFk(Department deptIdFk) {
+        this.deptIdFk = deptIdFk;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Lecturer other = (Lecturer) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
     
     

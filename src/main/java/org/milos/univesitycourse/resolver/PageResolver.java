@@ -40,6 +40,12 @@ public class PageResolver {
                 return "/WEB-INF/pages/course.jsp";
             case WebConstants.ADD_COURSE_PAGE:
                 return "/WEB-INF/pages/new_course.jsp";
+            case WebConstants.ADD_LECTURER_PAGE:
+                return "/WEB-INF/pages/new_lecturer.jsp";
+            case WebConstants.DISPLAY_LECTURERS_PAGE:
+                return "/WEB-INF/pages/lecturers.jsp";
+            case WebConstants.DISPLAY_LECTURER_PAGE:
+                return "/WEB-INF/pages/lecturer.jsp";
             default:
                 return null;
         }

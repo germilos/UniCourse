@@ -20,4 +20,7 @@ public interface ILecturerService {
     public List<Assistant> retrieveAllAssistants();
     public Professor retrieveProfessorById(Long id) throws Exception;
     public Assistant retrieveAssistantById(Long id) throws Exception;
+    public Lecturer insertLecturer(Lecturer lecturer) throws Exception;
+    public void updateLecturer(Lecturer lecturer);
+    public void deleteLecturer(Long id) throws Exception;
 }

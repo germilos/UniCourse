@@ -4,6 +4,8 @@
     Author     : Milos
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,11 +22,18 @@
     </head>
     <body>
         <jsp:include page="WEB-INF/reusables/_header.jsp"></jsp:include>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h1>Welcome to the university course panel!</h1>
-                    <h3>Please <a href='login.jsp'>log in</a></h3>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h1>Welcome to the university course panel!</h1>
+                    <c:choose>
+                        <c:when test="${logined_user != null}">
+                            <h3>You are logged in as ${logined_user.username}</h3>
+                        </c:when>
+                        <c:otherwise>
+                            <h3>Please <a href='login.jsp'>log in</a></h3>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>	

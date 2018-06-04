@@ -29,6 +29,16 @@ public class Professor extends Lecturer {
     @Column(name = "numOfResearch")
     private int numOfResearch;
 
+    public Professor() {
+        super(null, null, null);
+    }
+    
+    public Professor(String nameSurname, String fieldOfExpertise, Department deptIdFk, ProfessorType position, int numOfResearch) {
+        super(nameSurname, fieldOfExpertise, deptIdFk);
+        this.position = position;
+        this.numOfResearch = numOfResearch;
+    }
+
     public ProfessorType getPosition() {
         return position;
     }

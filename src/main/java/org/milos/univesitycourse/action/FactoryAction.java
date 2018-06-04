@@ -33,6 +33,18 @@ public class FactoryAction {
             action = new AddCourseAction();
         if (name.equals("deleteCourse"))
             action = new DeleteCourseAction();
+        if (name.equals("addLecturerPage"))
+            action = new AddLecturerPageAction();
+        if (name.equals("addLecturer"))
+            action = new AddLecturerAction();
+        if (name.equals("displayLecturers"))
+            action = new DisplayLecturersPageAction();
+        if (name.equals("displayLecturer"))
+            action = new DisplayLecturerPageAction();
+        if (name.equals("deleteLecturer")) 
+            action = new DeleteLecturerAction();
+        if (name.equals("updateLecturer"))
+            action = new UpdateLecturerAction();
         return action;
     }
 }

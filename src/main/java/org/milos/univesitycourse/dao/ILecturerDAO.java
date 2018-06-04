@@ -19,4 +19,7 @@ public interface ILecturerDAO {
     public List<Assistant> getAllAssistants();
     public Professor getProfessorById(Long id) throws Exception;
     public Assistant getAssistantById(Long id) throws Exception;
+    public Lecturer insertLecutrer(Lecturer lecturer) throws Exception;
+    public void updateLecturer(Lecturer lecturer);
+    public void deleteLecturer(Long id) throws Exception;
 }

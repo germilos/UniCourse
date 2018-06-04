@@ -26,12 +26,26 @@ public class Assistant extends Lecturer {
     @Enumerated(EnumType.STRING)
     private DiplomaType diplomaType;
 
+    public Assistant() {
+        super(null, null, null);
+    }
+
+    public Assistant(String nameSurname, String fieldOfExpertise, Department deptIdFk, DiplomaType diplomaType) {
+        super(nameSurname, fieldOfExpertise, deptIdFk);
+        this.diplomaType = diplomaType;
+    }
+    
     public DiplomaType getDiplomaType() {
         return diplomaType;
     }
 
     public void setDiplomaType(DiplomaType diplomaType) {
         this.diplomaType = diplomaType;
+    }
+
+    @Override
+    public String toString() {
+        return "Assistant{" + "diplomaType=" + diplomaType + '}';
     }
     
     

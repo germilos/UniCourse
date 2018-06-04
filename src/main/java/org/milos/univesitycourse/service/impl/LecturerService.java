@@ -45,4 +45,19 @@ public class LecturerService implements ILecturerService {
         return lecturerDAO.getAssistantById(id);
     }
 
+    @Override
+    public Lecturer insertLecturer(Lecturer lecturer) throws Exception {
+        return lecturerDAO.insertLecutrer(lecturer);
+    }
+
+    @Override
+    public void updateLecturer(Lecturer lecturer) {
+        lecturerDAO.updateLecturer(lecturer);
+    }
+
+    @Override
+    public void deleteLecturer(Long id) throws Exception {
+        lecturerDAO.deleteLecturer(id);
+    }
+
 }

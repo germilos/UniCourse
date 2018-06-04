@@ -35,7 +35,7 @@ public class DeleteCourseAction extends AbstractAction {
             courseService.remove(courseId);
         } catch (Exception ex) {
             ex.printStackTrace();
-            session.setAttribute("error_message", "Failed to delete course!");
+            request.setAttribute("error_message", ex.getMessage());
         }
         return WebConstants.DISPLAY_COURSES_PAGE;
     }

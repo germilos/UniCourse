@@ -18,9 +18,11 @@ import org.milos.univesitycourse.domain.CourseUnitPK;
 import org.milos.univesitycourse.enumeration.Status;
 import org.milos.univesitycourse.service.ICourseService;
 import org.milos.univesitycourse.service.IDepartmentService;
+import org.milos.univesitycourse.service.ILecturerService;
 import org.milos.univesitycourse.service.IStudyProgrammeService;
 import org.milos.univesitycourse.service.impl.CourseService;
 import org.milos.univesitycourse.service.impl.DepartmentService;
+import org.milos.univesitycourse.service.impl.LecturerService;
 import org.milos.univesitycourse.service.impl.StudyProgrammeService;
 
 /**
@@ -29,48 +31,90 @@ import org.milos.univesitycourse.service.impl.StudyProgrammeService;
  */
 public class UpdateCourseAction extends AbstractAction {
 
-    @Override
-    public String execute(HttpServletRequest request) {
-        
-        HttpSession session = request.getSession(false);
-        ICourseService courseService = new CourseService();
-        IStudyProgrammeService studyProgrammeService = new StudyProgrammeService();
-        IDepartmentService departmentService = new DepartmentService();
-        
-        Course course;
-        List<CourseUnit> courseUnits;
-        Long courseId = Long.parseLong(request.getParameter("courseId"));
-        Long studyProgrammeId = Long.parseLong(request.getParameter("course_st_program"));
-        Long departmentId = Long.parseLong(request.getParameter("course_dept"));
-        
-        try {
-            course = courseService.retrieveById(courseId);
-            courseUnits = new ArrayList<>();
-            course.getCourseUnits().clear();
-            String[] cuNumbers = request.getParameterValues("cuNumber");
-            String[] cuNames = request.getParameterValues("cuName");
-            for (int i = 0; i < cuNumbers.length; i++) {
-                System.out.println(cuNumbers[i] + " " + cuNames[i]);
-//                CourseUnit cu = new CourseUnit(new CourseUnitPK(course.getId(),
-//                                Integer.parseInt(cuNumbers[i])), cuNames[i]);
-//                System.out.println(cu);
-//                courseUnits.add(cu);
-            }
-//            course.getCourseUnits().addAll(courseUnits);
-//            course.setName(request.getParameter("course_name"));
-//            course.setGoal(request.getParameter("course_status"));
-//            course.setStatus(Status.valueOf(request.getParameter("course_status")));
-//            course.setEspb(Integer.parseInt(request.getParameter("course_espb")));
-//            course.setStudProgIdFk(studyProgrammeService.retrieveById(studyProgrammeId));
-//            course.setDepartmentFk(departmentService.retrieveById(departmentId));
-//            courseService.update(course);
-            
-        } catch(Exception ex) {
-            
-        }
-        return WebConstants.DISPLAY_COURSES_PAGE;
+    ICourseService courseService;
+    IStudyProgrammeService studyProgrammeService;
+    IDepartmentService departmentService;
+    ILecturerService lecturerService;
+
+    public UpdateCourseAction() {
+        initServices();
     }
 
-    
-    
+    @Override
+    public String execute(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+
+        Long courseId = Long.parseLong(request.getParameter("course_id"));
+        Long studyProgrammeId = Long.parseLong(request.getParameter("course_st_program"));
+        Long departmentId = Long.parseLong(request.getParameter("course_dept"));
+        String[] cuNames = request.getParameterValues("cuName");
+        String[] cuNumbers = request.getParameterValues("cuNumber");
+        String[] cuDescriptions = request.getParameterValues("cuDescription");
+        String[] professorsStrings = request.getParameterValues("professors_selected");
+        String[] assistantsString = request.getParameterValues("assistants_selected");
+
+        try {
+            Course course = courseService.retrieveById(courseId);
+
+            course.getCourseUnits().clear();
+            course.getLecturers().clear();
+            populateCourse(course, cuNames, cuNumbers, cuDescriptions, professorsStrings,
+                    assistantsString);
+            course.setName(request.getParameter("course_name"));
+            course.setGoal(request.getParameter("course_goal"));
+            course.setEspb(Integer.parseInt(request.getParameter("course_espb")));
+            course.setStatus(Status.valueOf(request.getParameter("course_status")));
+            course.setDepartmentFk(departmentService.retrieveById(departmentId));
+            course.setStudProgIdFk(studyProgrammeService.retrieveById(studyProgrammeId));
+
+            courseService.update(course);
+            request.setAttribute("message", "Course successfully updated!");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            request.setAttribute("error_message", ex.getMessage());
+        } finally {
+            request.setAttribute("course_list", courseService.retrieveAll());
+            return WebConstants.DISPLAY_COURSES_PAGE;
+        }
+    }
+
+    private void initServices() {
+        courseService = new CourseService();
+        studyProgrammeService = new StudyProgrammeService();
+        departmentService = new DepartmentService();
+        lecturerService = new LecturerService();
+    }
+
+    private void addCourseUnits(Course course, String[] cuNames, String[] cuNumbers, String[] cuDescriptions) {
+        for (int i = 0; i < cuNumbers.length; i++) {
+            course.getCourseUnits().add(new CourseUnit(new CourseUnitPK(course.getId(), Integer.parseInt(cuNumbers[i])), cuNames[i], cuDescriptions[i]));
+        }
+    }
+
+    private void addLecturers(Course course, String[] professorsStrings) throws Exception {
+        if (professorsStrings != null) {
+            for (String professorString : professorsStrings) {
+                long professorId = Long.parseLong(professorString.split(" ")[0]);
+                course.getLecturers().add(lecturerService.retrieveProfessorById(professorId));
+            }
+        }
+    }
+
+    private void addAssistants(Course course, String[] assistantsString) throws Exception {
+        if (assistantsString != null) {
+            for (String assistantString : assistantsString) {
+                long assistantId = Long.parseLong(assistantString.split(" ")[0]);
+                course.getLecturers().add(lecturerService.retrieveAssistantById(assistantId));
+            }
+        }
+    }
+
+    private void populateCourse(Course course, String[] cuNames, String[] cuNumbers,
+            String[] cuDescriptions, String[] professorsStrings,
+            String[] assistantsString) throws Exception {
+        addCourseUnits(course, cuNames, cuNumbers, cuDescriptions);
+        addLecturers(course, professorsStrings);
+        addAssistants(course, assistantsString);
+    }
 }

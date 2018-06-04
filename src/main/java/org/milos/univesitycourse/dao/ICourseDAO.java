@@ -19,4 +19,5 @@ public interface ICourseDAO {
     public Course insert(Course course) throws Exception;
     public void update(Course course);
     public void delete(Long id) throws Exception;
+    
 }

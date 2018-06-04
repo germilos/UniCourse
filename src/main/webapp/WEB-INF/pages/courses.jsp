@@ -25,16 +25,26 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <h1>Courses:</h1>
+                        <h1 class="course-title">Courses:</h1>
+                        <hr/>
                         <div class="container-fluid">
-                        <c:if test="${error_message} != null">
-                            <c:out value="${error_message}"></c:out>
+
+                        <c:if test="${message != null}">
+                            <p style="color:green">
+                                <c:out value="${message}"></c:out>
+                                </p>
+                        </c:if>
+                        <c:if test="${error_message != null}">
+                            <p style="color: red">
+                                <c:out value="${error_message}"></c:out>
+                                </p>
                         </c:if>
                         <div class="container-fluid">
                             <input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Search by name..">
                             <jsp:include page="/WEB-INF/reusables/_courses.jsp"></jsp:include>
-                        </div>
-                        <c:if test="${found_course} != null">
+                            </div>
+
+                        <c:if test="${found_course != null}">
                             <c:out value="${found_course}"></c:out>
                         </c:if>
                     </div>

@@ -10,21 +10,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.milos.univesitycourse.constant.WebConstants;
-import org.milos.univesitycourse.domain.Assistant;
-import org.milos.univesitycourse.domain.Course;
-import org.milos.univesitycourse.domain.Department;
-import org.milos.univesitycourse.domain.Lecturer;
-import org.milos.univesitycourse.domain.Professor;
-import org.milos.univesitycourse.domain.StudyProgramme;
+import org.milos.univesitycourse.domain.*;
 import org.milos.univesitycourse.enumeration.Status;
-import org.milos.univesitycourse.service.ICourseService;
-import org.milos.univesitycourse.service.IDepartmentService;
-import org.milos.univesitycourse.service.ILecturerService;
-import org.milos.univesitycourse.service.IStudyProgrammeService;
-import org.milos.univesitycourse.service.impl.CourseService;
-import org.milos.univesitycourse.service.impl.DepartmentService;
-import org.milos.univesitycourse.service.impl.LecturerService;
-import org.milos.univesitycourse.service.impl.StudyProgrammeService;
+import org.milos.univesitycourse.service.*;
+import org.milos.univesitycourse.service.impl.*;
 
 /**
  *
@@ -57,8 +46,8 @@ public class AddCoursePageAction extends AbstractAction {
             departments = departmentService.retrieveAll();
             professors = lecturerService.retrieveAllProfessors();
             assistants = lecturerService.retrieveAllAssistants();
-            
-            populateSession(studyProgrammes, departments, professors, assistants, session);
+
+            populateRequest(studyProgrammes, departments, professors, assistants, request);
 
             return WebConstants.ADD_COURSE_PAGE;
         } catch (Exception ex) {
@@ -74,7 +63,7 @@ public class AddCoursePageAction extends AbstractAction {
         lecturerService = new LecturerService();
         statuses = Arrays.asList(Status.values());
     }
-    
+
     private void populateSession(List<StudyProgramme> studyProgrammes,
             List<Department> departments, List<Professor> professors, List<Assistant> assistants,
             HttpSession session) {
@@ -83,6 +72,16 @@ public class AddCoursePageAction extends AbstractAction {
         session.setAttribute("professors", professors);
         session.setAttribute("assistants", assistants);
         session.setAttribute("statuses", statuses);
+    }
+
+    private void populateRequest(List<StudyProgramme> studyProgrammes,
+            List<Department> departments, List<Professor> professors,
+            List<Assistant> assistants, HttpServletRequest request) {
+        request.setAttribute("study_programmes", studyProgrammes);
+        request.setAttribute("departments", departments);
+        request.setAttribute("professors", professors);
+        request.setAttribute("assistants", assistants);
+        request.setAttribute("statuses", statuses);
     }
 
 }

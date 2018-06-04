@@ -8,6 +8,7 @@ package org.milos.univesitycourse.dao.impl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.*;
+import org.hibernate.Hibernate;
 import org.milos.univesitycourse.domain.Course;
 import org.milos.univesitycourse.dao.ICourseDAO;
 import org.milos.univesitycourse.listeners.EMF;
@@ -38,6 +39,7 @@ public class CourseDAO implements ICourseDAO {
         Course course = em.find(Course.class, id);
         try {
             if (course != null) {
+                Hibernate.initialize(course.getLecturers());
                 return course;
             } else {
                 throw new Exception("No course by that id found!");

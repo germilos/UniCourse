@@ -34,7 +34,7 @@ public class LoginAction extends AbstractAction {
             
             return WebConstants.ADMIN_HOME_PAGE;
         } catch (Exception e) {
-            session.setAttribute("error_message", "Wrong username or password!");
+            request.setAttribute("error_message", "Wrong username or password!");
             return WebConstants.LOGIN_PAGE;
         }
     }

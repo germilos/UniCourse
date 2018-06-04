@@ -27,9 +27,9 @@ public class DisplayCoursesPageAction extends AbstractAction {
 
         List<Course> courses = courseService.retrieveAll();
         if (courses.isEmpty()) {
-            session.setAttribute("message", "No courses found in database!");
+            request.setAttribute("error_message", "No courses found in database!");
         }
-        session.setAttribute("course_list", courses);
+        request.setAttribute("course_list", courses);
         return WebConstants.DISPLAY_COURSES_PAGE;
     }
 

@@ -13,6 +13,6 @@ import org.milos.univesitycourse.domain.Department;
  * @author Milos
  */
 public interface IDepartmentDAO {
-    public List<Department> getAll();
+    public List<Department> getAll() throws Exception;
     public Department getById(Long id) throws Exception;
 }

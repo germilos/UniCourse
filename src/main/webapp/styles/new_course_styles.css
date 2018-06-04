@@ -1,0 +1,36 @@
+.col { float:left; }
+.col-elem {display: inline}
+label {text-align: left}
+/*input {min-width: 200px}*/
+select {min-width: 200px}
+textarea {min-width: 300px}
+.course_espb_label {margin-top: 30px}
+.status_department_col {
+    margin-left: 35px;
+    margin-top: 0px;
+}
+.course_dept_label {margin-top: 30px}
+.course_goal_label {margin-left: 50px; margin-top: -2px}
+#course_goal {margin-left: 50px; min-height: 125px}
+.select_list {
+    min-height: 110px;
+    min-width: 250px
+}
+.selected_lecturers {
+    margin-top: 47px;
+    margin-left: 30px;
+}
+.select_buttons {
+    margin-top:70px;
+    margin-left: 30px;
+    min-height: 20px;
+    min-width: 20px;
+}
+.select_list_lecturers {
+    min-height: 110px;
+    min-width: 250px;
+}
+
+.course-subtitle {
+    text-align: left;
+}

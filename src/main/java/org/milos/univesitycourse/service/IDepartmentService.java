@@ -15,6 +15,6 @@ import org.milos.univesitycourse.domain.StudyProgramme;
  */
 public interface IDepartmentService {
  
-    public List<Department> retrieveAll();
+    public List<Department> retrieveAll() throws Exception;
     public Department retrieveById(Long id) throws Exception;
 }

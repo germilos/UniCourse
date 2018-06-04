@@ -11,19 +11,10 @@ import java.util.concurrent.CountDownLatch;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.milos.univesitycourse.constant.WebConstants;
-import org.milos.univesitycourse.domain.Course;
-import org.milos.univesitycourse.domain.CourseUnit;
-import org.milos.univesitycourse.domain.CourseUnitPK;
-import org.milos.univesitycourse.domain.Professor;
+import org.milos.univesitycourse.domain.*;
 import org.milos.univesitycourse.enumeration.Status;
-import org.milos.univesitycourse.service.ICourseService;
-import org.milos.univesitycourse.service.IDepartmentService;
-import org.milos.univesitycourse.service.ILecturerService;
-import org.milos.univesitycourse.service.IStudyProgrammeService;
-import org.milos.univesitycourse.service.impl.CourseService;
-import org.milos.univesitycourse.service.impl.DepartmentService;
-import org.milos.univesitycourse.service.impl.LecturerService;
-import org.milos.univesitycourse.service.impl.StudyProgrammeService;
+import org.milos.univesitycourse.service.*;
+import org.milos.univesitycourse.service.impl.*;
 
 /**
  *
@@ -52,7 +43,6 @@ public class AddCourseAction extends AbstractAction {
         String[] cuDescriptions = request.getParameterValues("cuDescription");
         String[] professorsStrings = request.getParameterValues("professors_selected");
         String[] assistantsString = request.getParameterValues("assistants_selected");
-        
 
         try {
             Course newCourse = new Course(request.getParameter("course_name"), request.getParameter("course_goal"),
@@ -63,12 +53,13 @@ public class AddCourseAction extends AbstractAction {
             populateCourse(course, cuNames, cuNumbers, cuDescriptions, professorsStrings,
                     assistantsString);
             courseService.update(course);
-
-            session.setAttribute("message", "Course successfully inserted!");
-            return WebConstants.ADD_COURSE_PAGE;
+            
+            request.setAttribute("course_list", courseService.retrieveAll());
+            request.setAttribute("message", "Course successfully inserted!");
+            return WebConstants.DISPLAY_COURSES_PAGE;
 
         } catch (Exception e) {
-            session.setAttribute("error_message", "There was an error inserting course");
+            request.setAttribute("error_message", e.getMessage());
             e.printStackTrace();
             return WebConstants.ADD_COURSE_PAGE;
         }
