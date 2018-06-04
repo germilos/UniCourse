@@ -20,7 +20,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="javascript/display_lecturers_scripts.js"></script>
     </head>
-    <body>
+    <body onmousemove="sortTable()">
         <jsp:include page="/WEB-INF/reusables/_header.jsp"></jsp:include>
             <div class="container-fluid">
                 <div class="row">

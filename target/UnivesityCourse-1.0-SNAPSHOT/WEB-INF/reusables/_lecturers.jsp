@@ -9,8 +9,8 @@
 <table class="table table-striped" id="myTable">
     <thead>
         <tr id="column_names_row">
-            <th onclick="sortTable(0)">ID</th>
-            <th onclick="sortTable(1)">Name</th>
+            <th>ID</th>
+            <th>Name</th>
             <th>FoE</th>
         </tr>
     </thead>
